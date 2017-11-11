@@ -2,7 +2,7 @@
 
 
 - [Data Types](#data-types)
-- [Lists](#list)
+- [Lists](#lists)
 - [Records](#records)
 - [Imports](#imports)
 - [Default Imports](#default-imports)
@@ -15,6 +15,8 @@
 - [Stuff you'll often see](#stuff-youll-often-see-in-purescript)
 - [Bower and Package Management](#bower-and-why-you-should-not-care)
 
+
+---
 
 #### Data types
 
@@ -249,7 +251,7 @@ getAge { age } = age
 | [String](http://package.elm-lang.org/packages/elm-lang/core/latest/String) | [Data.String](https://pursuit.purescript.org/packages/purescript-strings/3.3.0/docs/Data.String) |                                          |
 | [Debug](http://package.elm-lang.org/packages/elm-lang/core/latest/Debug) | [Debug.Trace](https://pursuit.purescript.org/packages/purescript-debug/3.0.0/docs/Debug.Trace) | `Trace.spy` is the closest thing to `Debug.log` |
 
-#### Common functions
+#### Common Functions
 
 | **Elm**                                  | **Purescript**                           |
 | ---------------------------------------- | ---------------------------------------- |
