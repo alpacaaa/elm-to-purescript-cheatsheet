@@ -186,7 +186,7 @@ import Data.Set (empty)
 ````haskell
 -- In Elm, the Basic package is imported by default
 -- it's like every file has this implicit declaration
-import Basic
+import Basic exposing (..)
 
 -- In Purescript nothing is imported by default
 -- so you have to explicitely import the Prelude
