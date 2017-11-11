@@ -259,8 +259,8 @@ getAge { age } = age
 | [always](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics#always) | [const](https://pursuit.purescript.org/packages/purescript-prelude/3.1.0/docs/Data.Function#v:const) |
 | `>>`                                     | `>>>`                                    |
 | `<<`                                     | `<<<`                                    |
-| `|>`                                     | `#`                                      |
-| `<|`                                     | `$`                                      |
+| \|>                                      | `#`                                      |
+| <\|                                      | `$`                                      |
 
 #### Wait, why there's no `Maybe.map`?
 
