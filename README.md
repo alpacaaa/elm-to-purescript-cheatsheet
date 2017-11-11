@@ -1,5 +1,22 @@
+### **Purescript for Elm developers**
 
-##### Data types
+
+- [Data Types](#data-types)
+- [Lists](#list)
+- [Records](#records)
+- [Imports](#imports)
+- [Default Imports](#default-imports)
+- [Type Signatures](#type-signatures)
+- [Common Packages](#common-packages)
+- [Common Functions](#common-functions)
+- [Typeclasses](#typeclasses-instead-of-monomorphic-code)
+- [Useful Things](#how-to-do-some-useful-things)
+- [Nice Things in Purescript](#nice-things-unique-to-purescript)
+- [Stuff you'll often see](#stuff-youll-often-see-in-purescript)
+- [Bower and Package Management](#bower-and-why-you-should-not-care)
+
+
+#### Data types
 
 ```haskell
 -- Elm
@@ -7,11 +24,11 @@ type Direction  = Up | Down
 type alias Time = Int
 
 -- Purescript
-data Direction = Up | Down
-type Time      = Int
+data Direction  = Up | Down
+type Time       = Int
 ```
 
-##### Lists
+#### Lists
 
 Constructing lists.
 
@@ -44,7 +61,7 @@ case xs of
 
 Should you use `List` or `Array` in Purescript? They perform differently but it shouldn't matter in most cases. Use whatever you like more.
 
-##### Records
+#### Records
 
 Define a record.
 
@@ -108,7 +125,7 @@ bumpAge p@{ age } =
 
 Check out [Updating records](https://github.com/purescript/documentation/blob/master/language/Syntax.md#record-updates) for more info.
 
-##### Imports
+#### Imports
 
 In Elm, imports are qualified by default while in Purescript everything from the module is imported.
 
@@ -162,7 +179,7 @@ import Data.Set (empty)
 -- Set is not in scope in both cases
 ```
 
-##### Default imports
+#### Default imports
 
 ````haskell
 -- In Elm, the Basic package is imported by default
@@ -192,7 +209,7 @@ import Debug.Trace
 
 This is not a critic, just me being lazy. I guess a more relaxed `Prelude` will be released and mantained at some point, but nothing stops you from defining your own. By not having a default, you effectively solve the `Prelude` hell that there is in Haskell, where unsafe functions and obscure choices made 20 years ago are still around to this day for backwards compatibility.
 
-##### Type signatures
+#### Type signatures
 
 Type signatures are separated with double colons
 ```haskell
@@ -219,7 +236,7 @@ getAge :: forall a. { age :: Int | a } -> Int
 getAge { age } = age
 ```
 
-##### Common packages
+#### Common packages
 
 | **Elm**                                  | **Purescript**                           | **Notes**                                |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
@@ -232,7 +249,7 @@ getAge { age } = age
 | [String](http://package.elm-lang.org/packages/elm-lang/core/latest/String) | [Data.String](https://pursuit.purescript.org/packages/purescript-strings/3.3.0/docs/Data.String) |                                          |
 | [Debug](http://package.elm-lang.org/packages/elm-lang/core/latest/Debug) | [Debug.Trace](https://pursuit.purescript.org/packages/purescript-debug/3.0.0/docs/Debug.Trace) | `Trace.spy` is the closest thing to `Debug.log` |
 
-##### Common functions
+#### Common functions
 
 | **Elm**                                  | **Purescript**                           |
 | ---------------------------------------- | ---------------------------------------- |
@@ -243,11 +260,11 @@ getAge { age } = age
 | `|>`                                     | `#`                                      |
 | `<|`                                     | `$`                                      |
 
-##### Wait, why there's no `Maybe.map`?
+#### Wait, why there's no `Maybe.map`?
 
 Because you can use typeclasses!
 
-##### Typeclasses instead of monomorphic code
+#### Typeclasses instead of monomorphic code
 
 I'd say the major difference between the two languages is the level of abstraction they let you work with.
 
@@ -285,7 +302,7 @@ This is like typeclasses 101 and I realize that without examples this is not ver
 
 [More on Typeclasses](https://github.com/purescript/documentation/blob/master/language/Type-Classes.md)
 
-##### How to do some useful things
+#### How to do some useful things
 
 ```haskell
 -- Elm
@@ -305,7 +322,7 @@ Just 5
 maybe 50 (_ + 10) (Just 5)
 ```
 
-##### Nice things unique to Purescript
+#### Nice things unique to Purescript
 
 The [Language Reference](https://github.com/purescript/documentation/blob/master/language/README.md) is a good starting point. The main features to look out for are:
 
@@ -313,7 +330,7 @@ The [Language Reference](https://github.com/purescript/documentation/blob/master
 - Pattern matching can be done at the function level. **Make sure you provide a type signature**. Take a look at [this example](http://try.purescript.org/?gist=320beda58782e606ee9ee6fcf4bcbced) to see why. Although it is possible to have partial functions in Purescript, you should obviously strive to write total functions (reminder, you can only define total functions in Elm).
 - Guards are pretty cool and can tidy up your code quite a bit. Read more about [Guards](https://github.com/purescript/documentation/blob/master/language/Pattern-Matching.md#guards).
 
-##### Stuff you'll often see in Purescript
+#### Stuff you'll often see in Purescript
 
 Or, what's with all the dollars and weird operators?!
 
@@ -352,10 +369,10 @@ Now the following might be a little too much if you haven't played around with t
 If this doesn't make sense, don't worry, you'll figure it out with some practice.
 
 
-##### Bower and why you should not care
+#### Bower and why you should not care
 
 Yeah Purescript still uses Bower, but honestly, it's not that big of a deal. It actually works quite well and I don't see it as being any worse/better than npm or another package manager. It just downloads stuff, it's fast and has a global cache, that's all I care about.
 
-If you *really* don't want to use it, check out package sets. They are more akin to the way Stackage in the Haskell world works. Basically they define a set of package versions that are guaranteed to work well together, so as long as you stick to using the packages defined in a specific set, you're good to go because you won't have conflicts among your dependencies. I haven't tried it yet, and I think it is still sort of an experimental thing.
+If you *really* don't want to use it, check out [psc-package](https://github.com/purescript/psc-package) and [package-sets](https://github.com/purescript/package-sets). They are more akin to the way Stackage in the Haskell world works. Basically a package-set is a list of package versions that are guaranteed to work well together, so as long as you stick to using the packages defined in a specific set, you're good to go because you won't have conflicts among your dependencies. I haven't tried it yet, and I think it is still sort of an experimental thing, but might become standard in the future.
 
 In short, use Bower and don't fret about it.
