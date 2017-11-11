@@ -37,7 +37,7 @@ Constructing lists.
 ```haskell
 -- Elm
 list    = [1,2,3]
-newList = 5 : list
+newList = 5 :: list
 
 -- In Purescript, the quickest way to create
 -- a list is from a Foldable structure
@@ -50,8 +50,8 @@ Pattern matching on lists is almost the same.
 ```haskell
 -- Elm
 case xs of
-  []       -> ...
-  x : rest -> ...
+  []        -> ...
+  x :: rest -> ...
 
 -- Purescript
 case xs of
@@ -80,7 +80,7 @@ type Person       = { name :: String, age :: Int }
 Create a new record.
 ```haskell
 -- Elm
-p = { name: "Bob", age: 30 }
+p = { name = "Bob", age = 30 }
 p = Person "bob" 30
 
 --Purescript
