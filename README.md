@@ -184,9 +184,9 @@ import Data.Set (empty)
 #### Default imports
 
 ````haskell
--- In Elm, the Basic package is imported by default
+-- In Elm, the Basics package is imported by default
 -- it's like every file has this implicit declaration
-import Basic exposing (..)
+import Basics exposing (..)
 
 -- In Purescript nothing is imported by default
 -- so you have to explicitly import the Prelude
@@ -196,7 +196,7 @@ import Prelude
 The `Prelude` isn't imported by the compiler automatically so that it's easier for a team to decide to use something different than the stock one. I get why this choice was made, but it's one more thing to keep in mind that you don't necessarily want to deal with. :stuck_out_tongue:
 
 
-Also, the default `Prelude` is rather lightweight, meaning it does not import anything immediately useful (compared to the `Basic` package in Elm). I find myself almost always importing this stuff at the very least.
+Also, the default `Prelude` is rather lightweight, meaning it does not import anything immediately useful (compared to the default imports in Elm). I find myself almost always importing this stuff at the very least.
 
 ```haskell
 import Data.Maybe
@@ -206,11 +206,12 @@ import Data.List (List(..))
 import Data.List as List
 
 import Control.Monad.Eff.Console as Console
-import Debug.Trace
--- maybe add others?
+import Debug.Trace as Debug
 ```
 
 This is not a critic, just me being lazy. I guess a more relaxed `Prelude` will be released and maintained at some point, but nothing stops you from defining your own. By not having a default, you effectively solve the `Prelude` hell that there is in Haskell, where unsafe functions and obscure choices made 20 years ago are still around to this day for backwards compatibility.
+
+(Full and up to date list of modules automatically imported by Elm [can be found here](https://github.com/elm-lang/core/blob/master/README.md#default-imports). It's a bit more than just the `Basics` package)
 
 #### Type signatures
 
