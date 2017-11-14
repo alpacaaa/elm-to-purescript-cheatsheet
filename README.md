@@ -333,6 +333,8 @@ The [Language Reference](https://github.com/purescript/documentation/blob/master
 - `_` can be used in functions when you don't want to give the parameter a name. It's like anonymous functions on steroids.
 - Pattern matching can be done at the function level. **Make sure you provide a type signature**. Take a look at [this example](http://try.purescript.org/?gist=320beda58782e606ee9ee6fcf4bcbced) to see why. Although it is possible to have partial functions in Purescript, you should obviously strive to write total functions (reminder, you can only define total functions in Elm).
 - Guards are pretty cool and can tidy up your code quite a bit. Read more about [Guards](https://github.com/purescript/documentation/blob/master/language/Pattern-Matching.md#guards).
+- Typed holes are just awesome. In Elm you can use [type bombs](http://blog.jenkster.com/2016/11/type-bombs-in-elm.html) to achieve similar results, but holes are way more powerful.
+I suggest you take a look at the tutorial [Generating collections of random numbers in PureScript](https://gist.github.com/kRITZCREEK/ebc1a9340b946e68d32de880efe1f644) to understand how to use them (read it!).
 
 #### Stuff you'll often see in Purescript
 
