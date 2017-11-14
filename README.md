@@ -189,11 +189,12 @@ import Data.Set (empty)
 import Basic exposing (..)
 
 -- In Purescript nothing is imported by default
--- so you have to explicitely import the Prelude
+-- so you have to explicitly import the Prelude
 import Prelude
 ````
 
-The `Prelude` isn't imported by the compiler automatically so that it's easier for a team to decide to use something different than the stock one. I get why this choice was made, but it's one more thing to keep in mind that you don't necessarely want to deal with. :stuck_out_tongue:
+The `Prelude` isn't imported by the compiler automatically so that it's easier for a team to decide to use something different than the stock one. I get why this choice was made, but it's one more thing to keep in mind that you don't necessarily want to deal with. :stuck_out_tongue:
+
 
 Also, the default `Prelude` is rather lightweight, meaning it does not import anything immediately useful (compared to the `Basic` package in Elm). I find myself almost always importing this stuff at the very least.
 
@@ -209,7 +210,7 @@ import Debug.Trace
 -- maybe add others?
 ```
 
-This is not a critic, just me being lazy. I guess a more relaxed `Prelude` will be released and mantained at some point, but nothing stops you from defining your own. By not having a default, you effectively solve the `Prelude` hell that there is in Haskell, where unsafe functions and obscure choices made 20 years ago are still around to this day for backwards compatibility.
+This is not a critic, just me being lazy. I guess a more relaxed `Prelude` will be released and maintained at some point, but nothing stops you from defining your own. By not having a default, you effectively solve the `Prelude` hell that there is in Haskell, where unsafe functions and obscure choices made 20 years ago are still around to this day for backwards compatibility.
 
 #### Type signatures
 
@@ -328,7 +329,7 @@ maybe 50 (_ + 10) (Just 5)
 
 The [Language Reference](https://github.com/purescript/documentation/blob/master/language/README.md) is a good starting point. The main features to look out for are:
 
-- `_` can be used in functions when you don't want to give the paramater a name. It's like anonymous functions on steroids.
+- `_` can be used in functions when you don't want to give the parameter a name. It's like anonymous functions on steroids.
 - Pattern matching can be done at the function level. **Make sure you provide a type signature**. Take a look at [this example](http://try.purescript.org/?gist=320beda58782e606ee9ee6fcf4bcbced) to see why. Although it is possible to have partial functions in Purescript, you should obviously strive to write total functions (reminder, you can only define total functions in Elm).
 - Guards are pretty cool and can tidy up your code quite a bit. Read more about [Guards](https://github.com/purescript/documentation/blob/master/language/Pattern-Matching.md#guards).
 
