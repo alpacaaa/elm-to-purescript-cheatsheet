@@ -4,6 +4,7 @@
 - [Data Types](#data-types)
 - [Lists](#lists)
 - [Records](#records)
+- [Tuples](#tuples)
 - [Imports](#imports)
 - [Default Imports](#default-imports)
 - [Type Signatures](#type-signatures)
@@ -126,6 +127,24 @@ bumpAge p@{ age } =
 ```
 
 Check out [Updating records](https://github.com/purescript/documentation/blob/master/language/Syntax.md#record-updates) for more info.
+
+
+#### Tuples
+
+```haskell
+-- Elm
+coords = (10, 20)
+(x, y) = coords
+
+-- Purescript
+import Data.Tuple
+
+coords    = Tuple 10 20
+Tuple x y = coords
+```
+
+Tuples are part of the language in Elm, while they're just a data type in Purescript.
+This is not that big of a deal, use records when possible.
 
 #### Imports
 
