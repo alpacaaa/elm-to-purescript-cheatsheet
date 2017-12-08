@@ -10,9 +10,11 @@ import Common.BeginnerApp as BeginnerApp
 
 
 
-type Model = Int
+type Model =
+    Int
 
-data Msg = Increment | Decrement
+data Msg
+    = Increment | Decrement
 
 
 model :: Model
