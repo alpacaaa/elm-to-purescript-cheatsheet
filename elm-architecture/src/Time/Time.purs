@@ -2,28 +2,20 @@ module Time.Main where
 
 import Prelude
 
-import Control.Monad.Aff (Aff)
 import Control.Monad.Eff (Eff)
-import Control.Monad.Eff.Exception as Exception
 import Control.Monad.Eff.Ref as Ref
 import Control.Monad.Eff.Timer as Timer
-import Data.Argonaut as A
 import Data.Const (Const)
-import Data.DateTime.Instant as Date
-import Data.Either (Either(..))
-import Data.Either as Either
 import Data.Foldable (traverse_)
 import Data.Int as Int
 import Data.Maybe (Maybe(..))
-import Data.Monoid (mempty)
-import Data.StrMap as StrMap
 import Data.Time.Duration as Date
+import Data.DateTime.Instant as Date
 import Control.Monad.Eff.Now as Date
 import Spork.App as App
 import Spork.EventQueue as EventQueue
-import Spork.Html (Html, div, button, onClick, text, h2, img, src)
-import Spork.Interpreter (Interpreter(..))
-import Spork.Interpreter (merge, never, throughAff)
+import Spork.Html (Html, div, text, h2)
+import Spork.Interpreter (Interpreter(..), merge, never)
 
 
 type Model =
@@ -32,6 +24,13 @@ type Model =
 
 data Msg
     = Tick Date.Instant
+
+
+data Sub a =
+    TickTime (Date.Instant -> a)
+
+
+derive instance functorSub ∷ Functor Sub
 
 
 init :: App.Transition (Const Void) Model Msg
@@ -53,11 +52,7 @@ update model msg =
             App.purely (Just time)
 
 
-data Sub a =
-    TickTime (Date.Instant -> a)
-
-derive instance functorSub ∷ Functor Sub
-
+subs :: Model -> App.Batch Sub Msg
 subs model =
     App.lift (TickTime Tick)
 
@@ -71,6 +66,7 @@ app =
     }
 
 
+runSubscriptions :: forall i. Interpreter (Eff _) Sub i
 runSubscriptions = Interpreter $ EventQueue.withAccumArray \queue -> do
     model <- Ref.newRef []
 
