@@ -11,5 +11,8 @@ forms:
 random:
 	pulp build --to src/Random/app.js -m Random.Main
 
+http:
+	pulp build --to src/Http/app.js -m Http.Main
+
 serve:
 	python -m SimpleHTTPServer
