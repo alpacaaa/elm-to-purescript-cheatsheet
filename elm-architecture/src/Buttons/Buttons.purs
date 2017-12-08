@@ -8,9 +8,17 @@ import Spork.Html (Html, div, text, button, onClick)
 import Common.BeginnerApp (BeginnerApp)
 import Common.BeginnerApp as BeginnerApp
 
+
+
 type Model = Int
 
 data Msg = Increment | Decrement
+
+
+model :: Model
+model =
+    0
+
 
 render :: Model -> Html Msg
 render model =
@@ -27,12 +35,14 @@ update model msg =
         Increment -> model + 1
         Decrement -> model - 1
 
+
 app :: BeginnerApp Model Msg
 app =
     { render
     , update
-    , model: 0
+    , model
     }
+
 
 main :: Eff _ Unit
 main = do
