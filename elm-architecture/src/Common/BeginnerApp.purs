@@ -1,5 +1,6 @@
-module BeginnerApp
-    ( makeWithSelector
+module Common.BeginnerApp
+    ( BeginnerApp
+    , makeWithSelector
     ) where
 
 import Prelude
@@ -10,14 +11,6 @@ import Spork.App (BasicApp, AppEffects, AppInstance)
 import Spork.Html (Html)
 import Spork.App as App
 import Spork.Interpreter as Interpreter
-
--- app :: BasicApp (Const Void) Model Msg
--- app =
---     { render
---     , update
---     , subs: const mempty
---     , init: App.purely 0
---     }
 
 -- This is probably the wrong way of going about this
 noFx =

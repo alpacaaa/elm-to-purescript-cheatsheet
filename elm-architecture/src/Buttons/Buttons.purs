@@ -4,12 +4,9 @@ import Prelude
 
 import Control.Monad.Eff (Eff)
 import Data.Maybe (Maybe(..))
-import Data.Const (Const)
-import Data.Monoid (mempty)
 import Spork.Html (Html, div, text, button, onClick)
 import Common.BeginnerApp (BeginnerApp)
 import Common.BeginnerApp as BeginnerApp
-import Spork.Interpreter as Interpreter
 
 type Model = Int
 
@@ -20,7 +17,7 @@ render model =
     div []
         [ button [ onClick (const $ Just Decrement) ] [ text "-" ]
         , div [] [ text (show model) ]
-        , button [ onClick (const $ Just Increment) ] [ text "plus" ]
+        , button [ onClick (const $ Just Increment) ] [ text "+" ]
         ]
 
 
