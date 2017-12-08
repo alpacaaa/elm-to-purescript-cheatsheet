@@ -7,8 +7,8 @@ import Data.Maybe (Maybe(..))
 import Data.Const (Const)
 import Data.Monoid (mempty)
 import Spork.Html (Html, div, text, button, onClick)
-import Spork.App (BasicApp)
-import Spork.App as App
+import Common.BeginnerApp (BeginnerApp)
+import Common.BeginnerApp as BeginnerApp
 import Spork.Interpreter as Interpreter
 
 type Model = Int
@@ -20,29 +20,24 @@ render model =
     div []
         [ button [ onClick (const $ Just Decrement) ] [ text "-" ]
         , div [] [ text (show model) ]
-        , button [ onClick (const $ Just Increment) ] [ text "+" ]
+        , button [ onClick (const $ Just Increment) ] [ text "plus" ]
         ]
 
 
-update :: Model -> Msg -> App.Transition (Const Void) Model Msg
+update :: Model -> Msg -> Model
 update model msg =
     case msg of
-        Increment -> App.purely (model + 1)
-        Decrement -> App.purely (model - 1)
+        Increment -> model + 1
+        Decrement -> model - 1
 
-app :: BasicApp (Const Void) Model Msg
+app :: BeginnerApp Model Msg
 app =
     { render
     , update
-    , subs: const mempty
-    , init: App.purely 0
+    , model: 0
     }
-
--- This is probably the wrong way of going about this
-noFx =
-    (Interpreter.never `Interpreter.merge` Interpreter.never)
 
 main :: Eff _ Unit
 main = do
-    inst <- App.makeWithSelector noFx app "#app"
+    inst <- BeginnerApp.makeWithSelector app "#app"
     inst.run
