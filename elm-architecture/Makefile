@@ -8,5 +8,8 @@ textfields:
 forms:
 	pulp build --to src/Forms/app.js -m Forms.Main
 
+random:
+	pulp build --to src/Random/app.js -m Random.Main
+
 serve:
 	python -m SimpleHTTPServer
