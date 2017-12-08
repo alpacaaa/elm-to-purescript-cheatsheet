@@ -14,5 +14,8 @@ random:
 http:
 	pulp build --to src/Http/app.js -m Http.Main
 
+time:
+	pulp build --to src/Time/app.js -m Time.Main
+
 serve:
 	python -m SimpleHTTPServer
