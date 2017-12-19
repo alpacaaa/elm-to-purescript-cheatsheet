@@ -18,28 +18,11 @@ import Spork.Html (Html, div)
 import Spork.Html as Html
 import Spork.Interpreter (Interpreter(..), merge, never)
 
+elemSvg = Html.elemWithNS (Just $ Html.Namespace "http://www.w3.org/2000/svg")
 
--- utter crap
--- requires patch in Spork/Html/Core
-
-{--
-import Halogen.HTML.Core (Prop(Attribute), Namespace(Namespace), AttrName(AttrName))
-import Halogen.HTML.Core as H
-
-ns :: Maybe Namespace
-ns = Just $ Namespace "http://www.w3.org/2000/svg"
-
-elemSvg ∷ ∀ r i. String → Array (IProp r i) → Array (Html i) → Html i
-elemSvg name props children =
-    Html
-        (V.Elem
-            (V.ElemSpec ns (V.ElemName name) (unsafeCoerce props ∷ Array (P.Prop i)))
-            (unwrapF children))
---}
-
-svg = Html.elemSvg "svg"
-circle = Html.elemSvg "circle"
-line = Html.elemSvg "line"
+svg = elemSvg "svg"
+circle = elemSvg "circle"
+line = elemSvg "line"
 
 viewBox = Html.attr "viewBox"
 cx = Html.attr "cx"
