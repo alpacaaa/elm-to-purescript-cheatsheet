@@ -9,32 +9,16 @@ import Data.Const (Const)
 import Data.Foldable (traverse_)
 import Math as Math
 import Data.Maybe (Maybe(..), maybe)
-import Data.Time.Duration as Date
-import Data.DateTime.Instant as Date
-import Control.Monad.Eff.Now as Date
+import Data.Time.Duration (Minutes(..), convertDuration) as Date
+import Data.DateTime.Instant (Instant, unInstant) as Date
+import Control.Monad.Eff.Now (now) as Date
 import Spork.App as App
 import Spork.EventQueue as EventQueue
 import Spork.Html (Html, div)
 import Spork.Html as Html
 import Spork.Interpreter (Interpreter(..), merge, never)
 
-elemSvg = Html.elemWithNS (Just $ Html.Namespace "http://www.w3.org/2000/svg")
-
-svg = elemSvg "svg"
-circle = elemSvg "circle"
-line = elemSvg "line"
-
-viewBox = Html.attr "viewBox"
-cx = Html.attr "cx"
-cy = Html.attr "cy"
-r = Html.attr "r"
-fill = Html.attr "fill"
-
-x1 = Html.attr "x1"
-x2 = Html.attr "x2"
-y1 = Html.attr "y1"
-y2 = Html.attr "y2"
-stroke = Html.attr "stroke"
+import Common.Svg (svg, viewBox, circle, cx, cy, r, fill, line, x1, x2, y1, y2, stroke)
 
 type Model =
     Maybe Date.Instant
