@@ -1,4 +1,12 @@
 
+all:
+	make buttons
+	make textfields
+	make forms
+	make random
+	make http
+	make time
+
 buttons:
 	pulp build --to src/Buttons/app.js -m Buttons.Main
 

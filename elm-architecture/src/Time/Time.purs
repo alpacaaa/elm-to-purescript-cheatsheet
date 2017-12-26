@@ -14,8 +14,7 @@ import Data.DateTime.Instant (Instant, unInstant) as Date
 import Control.Monad.Eff.Now (now) as Date
 import Spork.App as App
 import Spork.EventQueue as EventQueue
-import Spork.Html (Html, div)
-import Spork.Html as Html
+import Spork.Html (Html, div, styles, Style(..))
 import Spork.Interpreter (Interpreter(..), merge, never)
 
 import Common.Svg (svg, viewBox, circle, cx, cy, r, fill, line, x1, x2, y1, y2, stroke)
@@ -65,7 +64,7 @@ render model =
         handY =
             show (50.0 + 40.0 * Math.sin angle)
     in
-    div [ Html.styles [Html.Style "width" "300px"] ]
+    div [ styles [Style "width" "300px"] ]
         [ svg [ viewBox "0 0 100 100"]
             [ circle [ cx "50", cy "50", r "45", fill "#0B79CE" ] []
             , line [ x1 "50", y1 "50", x2 handX, y2 handY, stroke "#023963" ] []
@@ -102,14 +101,14 @@ runSubscriptions = Interpreter $ EventQueue.withAccumArray \queue -> do
         tick = do
             now <- Date.now
             Ref.readRef model >>= traverse_ case _ of
-                TickTime k → queue.push (k now)
+                TickTime k -> queue.push (k now)
             queue.run
 
         commit new = do
             old <- Ref.readRef model
             Ref.writeRef model new
             case old, new of
-                [], _ -> void $ Timer.setInterval 500 tick
+                [], _ -> void $ Timer.setInterval 1000 tick
                 _, _  -> pure unit
 
             pure unit

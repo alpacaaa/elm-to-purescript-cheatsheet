@@ -9,6 +9,7 @@
 - Effects
   - [Random](src/Random)
   - [HTTP](src/HTTP)
+  - [Time](src/Time)
 
 ---
 
