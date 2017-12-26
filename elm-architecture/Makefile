@@ -26,4 +26,4 @@ time:
 	pulp build --to src/Time/app.js -m Time.Main
 
 serve:
-	python -m SimpleHTTPServer
+	cd src && python -m SimpleHTTPServer
