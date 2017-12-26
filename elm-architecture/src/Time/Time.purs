@@ -31,7 +31,7 @@ data Sub a =
     TickTime (Date.Instant -> a)
 
 
-derive instance functorSub ∷ Functor Sub
+derive instance functorSub :: Functor Sub
 
 
 init :: App.Transition (Const Void) Model Msg
