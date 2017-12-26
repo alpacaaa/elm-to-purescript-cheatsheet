@@ -15,6 +15,7 @@
 - [Nice Things in Purescript](#nice-things-unique-to-purescript)
 - [Stuff you'll often see](#stuff-youll-often-see-in-purescript)
 - [Bower and Package Management](#bower-and-why-you-should-not-care)
+- [Elm Architecture](#elm-architecture)
 
 
 ---
@@ -402,3 +403,10 @@ Yeah Purescript still uses Bower, but honestly, it's not that big of a deal. It 
 If you *really* don't want to use it, check out [psc-package](https://github.com/purescript/psc-package) and [package-sets](https://github.com/purescript/package-sets). They are more akin to the way Stackage in the Haskell world works. Basically a package-set is a list of package versions that are guaranteed to work well together, so as long as you stick to using the packages defined in a specific set, you're good to go because you won't have conflicts among your dependencies. I haven't tried it yet, and I think it is still sort of an experimental thing, but might become standard in the future.
 
 In short, use Bower and don't fret about it.
+
+
+#### Elm Architecture
+
+It's possible to get a pretty solid Elmish architecture in Purescript today! The library I like the most is [purescript-spork](https://github.com/natefaubion/purescript-spork). You should take a look at the examples (ported from https://guide.elm-lang.org/) and see for yourself.
+
+Samples applications are available in the [elm-architecture](elm-architecture) folder of this repo.
