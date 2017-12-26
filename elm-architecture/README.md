@@ -1,15 +1,15 @@
-### **Elm guide ported to Purescript**
+### **Elm guide ported to Purescript (with Spork)**
 
 
 - User Input
-  - [Buttons](src/Buttons)
-  - [Text Fields](src/TextFields)
-  - [Forms](src/Forms)
+  - [Buttons](src/Buttons/Buttons.purs)
+  - [Text Fields](src/TextFields/TextFields.purs)
+  - [Forms](src/Forms/Forms.purs)
 
 - Effects
-  - [Random](src/Random)
-  - [HTTP](src/HTTP)
-  - [Time](src/Time)
+  - [Random](src/Random/Random.purs)
+  - [HTTP](src/HTTP/HTTP.purs)
+  - [Time](src/Time/Time.purs)
 
 ---
 
@@ -20,16 +20,11 @@ Implemented with [purescript-spork](https://github.com/natefaubion/purescript-sp
 
 #### Running
 
-Compile single application with `make`.
-
 ```
-make random
-```
-
-Run a webserver with all the samples ready to go.
-
-```
+cd elm-architecture
+bower install
+make all
 make serve
 ```
 
-Visit http://localhost:8000/src/Random/
+Visit http://localhost:8000/
