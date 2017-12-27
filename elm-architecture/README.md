@@ -8,7 +8,7 @@
 
 - Effects
   - [Random](src/Random/Random.purs)
-  - [HTTP](src/HTTP/Http.purs)
+  - [HTTP](src/Http/Http.purs)
   - [Time](src/Time/Time.purs)
 
 ---
