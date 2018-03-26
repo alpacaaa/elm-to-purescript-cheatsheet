@@ -402,7 +402,9 @@ Yeah Purescript still uses Bower, but honestly, it's not that big of a deal. It 
 
 If you *really* don't want to use it, check out [psc-package](https://github.com/purescript/psc-package) and [package-sets](https://github.com/purescript/package-sets). They are more akin to the way Stackage in the Haskell world works. Basically a package-set is a list of package versions that are guaranteed to work well together, so as long as you stick to using the packages defined in a specific set, you're good to go because you won't have conflicts among your dependencies. I haven't tried it yet, and I think it is still sort of an experimental thing, but might become standard in the future.
 
-In short, use Bower and don't fret about it.
+This post has a lot of good info as well: [Setting up PureScript in March 2018](https://qiita.com/kimagure/items/570e6f2bbce5b4724564)
+
+Don't feel bad for using Bower. It's fine.
 
 
 #### Elm Architecture
