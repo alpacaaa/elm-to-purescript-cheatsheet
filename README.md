@@ -277,7 +277,6 @@ getAge { age } = age
 
 | **Elm**                                  | **Purescript**                           |
 | ---------------------------------------- | ---------------------------------------- |
-| [identity](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics#identity) | [id](https://pursuit.purescript.org/packages/purescript-prelude/3.1.0/docs/Data.Function#v:id) |
 | [always](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics#always) | [const](https://pursuit.purescript.org/packages/purescript-prelude/3.1.0/docs/Data.Function#v:const) |
 | [toString](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics#toString) | [show](https://pursuit.purescript.org/packages/purescript-prelude/3.1.0/docs/Data.Show#v:show) |
 | `>>`                                     | `>>>`                                    |
