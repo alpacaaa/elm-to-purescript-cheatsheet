@@ -400,9 +400,9 @@ If this doesn't make sense, don't worry, you'll figure it out with some practice
 
 Yeah Purescript still uses Bower, but honestly, it's not that big of a deal. It actually works quite well and I don't see it as being any worse/better than npm or another package manager. It just downloads stuff, it's fast and has a global cache, that's all I care about.
 
-If you *really* don't want to use it, check out [psc-package](https://github.com/purescript/psc-package) and [package-sets](https://github.com/purescript/package-sets). They are more akin to the way Stackage in the Haskell world works. Basically a package-set is a list of package versions that are guaranteed to work well together, so as long as you stick to using the packages defined in a specific set, you're good to go because you won't have conflicts among your dependencies. I haven't tried it yet, and I think it is still sort of an experimental thing, but might become standard in the future.
+Another popular alternative is [spago](https://github.com/purescript/spago), which uses [psc-package](https://github.com/purescript/psc-package) and [package-sets](https://github.com/purescript/package-sets). They are more akin to the way Stackage in the Haskell world works. Basically a package-set is a list of package versions that are guaranteed to work well together, so as long as you stick to using the packages defined in a specific set, you're good to go because you won't have conflicts among your dependencies.
 
-This post has a lot of good info as well: [Setting up PureScript in March 2018](https://qiita.com/kimagure/items/570e6f2bbce5b4724564)
+This thread has a lot of good info as well: [Recommended tooling for PureScript applications in 2019](https://discourse.purescript.org/t/recommended-tooling-for-purescript-applications-in-2019/948)
 
 Don't feel bad for using Bower. It's fine.
 
@@ -412,3 +412,5 @@ Don't feel bad for using Bower. It's fine.
 It's possible to get a pretty solid Elmish architecture in Purescript today! The library I like the most is [purescript-spork](https://github.com/natefaubion/purescript-spork). You should take a look at the examples (ported from https://guide.elm-lang.org/) and see for yourself.
 
 Samples applications are available in the [elm-architecture](elm-architecture) folder of this repo.
+
+Of course, you also have the freedom to use a component-based architecture such as [halogen](https://github.com/purescript-halogen/purescript-halogen) or [react-basic-hooks](https://github.com/spicydonuts/purescript-react-basic-hooks).
